@@ -1,6 +1,6 @@
 package com.cibertec.jama.entities.pedido;
 
-import com.cibertec.jama.entities.usuario.User;
+import com.cibertec.jama.entities.usuario.Users;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,7 +28,7 @@ public class Pedido {
     private Double startTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private User user;
+    private Users users;
 
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     private List<PedidoItem> pedidoItems;

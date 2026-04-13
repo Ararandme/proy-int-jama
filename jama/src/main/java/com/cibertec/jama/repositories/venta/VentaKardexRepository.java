@@ -1,4 +1,7 @@
 package com.cibertec.jama.repositories.venta;
 
-public interface VentaKardexRepository {
+import com.cibertec.jama.entities.venta.VentaKardex;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface VentaKardexRepository  extends JpaRepository<VentaKardex, Long> {
 }

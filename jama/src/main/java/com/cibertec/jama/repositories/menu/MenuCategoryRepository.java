@@ -1,4 +1,7 @@
 package com.cibertec.jama.repositories.menu;
 
-public interface MenuCategoryRepository {
+import com.cibertec.jama.entities.menu.MenuCategory;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MenuCategoryRepository extends JpaRepository<MenuCategory, Long> {
 }

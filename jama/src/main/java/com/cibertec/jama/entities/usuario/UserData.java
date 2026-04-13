@@ -21,5 +21,5 @@ public class UserData {
     private String cargo;
     @OneToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private Users users;
 }

@@ -3,24 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Configuracion del usuario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
-<a th:href="@{/usuario/usuario-listado}">
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="text-center">
 
-        Listado nuevo usuarios
+        <h2 class="mb-4">Gestión de Usuarios</h2>
 
-</a>
-<a th:href="@{/usuario/usuario-registro}">
+        <!-- Optional: show logged user -->
+        <p class="text-muted mb-4" th:text="'Usuario: ' + ${session.loginid}"></p>
 
-        registro de nuevos usuarios
+        <div class="d-grid gap-3">
 
-</a>
+            <a th:href="@{/usuario/usuario-listado}" class="btn btn-primary">
+                 Listado de usuarios
+            </a>
 
+            <a th:href="@{/usuario/usuario-registro}" class="btn btn-success">
+                  Registrar nuevo usuario
+            </a>
 
-<a th:href="@{/usuario/usuario-registro-cargos}">
+            <a th:href="@{/usuario/usuario-registro-cargos}" class="btn btn-warning">
+                   Registrar nuevos cargos
+            </a>
 
-        registro de nuevos cargos
+            <!-- Back button -->
+            <a th:href="@{/menu/main-menu}" class="btn btn-secondary mt-3">
+                 Volver al menú principal
+            </a>
 
-</a>
+        </div>
+
+    </div>
+</div>
 </body>
 </html>
