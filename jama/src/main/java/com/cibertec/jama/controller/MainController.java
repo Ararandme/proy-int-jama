@@ -8,7 +8,7 @@ public class MainController {
 
     @GetMapping("/")
     public String index() {
-        return "login/login";
+        return "redirect:/login";
     }
 
 }

@@ -12,7 +12,7 @@
             <div class="card p-4 mx-auto" style="max-width: 500px;">
                 <h3 class="text-center mb-3">Registro tipos</h3>
 
-                <form th:object="${type}" th:action="@{/usuario/usuario-registro-cargos}" method="post">
+                <form th:object="${type}" th:action="@{/menu/menu-registro-tipos}" method="post">
 
                     <!-- ID hidden -->
                     <input type="hidden" name="id" th:value="*{id}" th:field="*{id}">
@@ -77,14 +77,16 @@
 
                             <td>
                                 <!-- EDIT -->
-                                <a th:href="@{/menu/menu-registro-categorias/update/{id}(id=${item.id})}"
+                                <a th:href="@{/menu/menu-registro-categorias/{id}(id=${item.id})}"
                                    class="btn btn-warning btn-sm">
                                     ✏️
                                 </a>
 
                                 <!-- DELETE -->
                                 <form th:action="@{/menu/menu-registro-categorias/delete/{id}(id=${item.id})}"
-                                      style="display:inline;">
+                                      style="display:inline;"
+                                      method="post"
+                                >
                                     <button type="submit"
                                             class="btn btn-danger btn-sm"
                                             onclick="return confirm('¿Eliminar?')">
