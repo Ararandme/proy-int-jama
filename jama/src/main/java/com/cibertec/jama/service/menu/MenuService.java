@@ -2,10 +2,7 @@ package com.cibertec.jama.service.menu;
 
 import com.cibertec.jama.dto.menu.MenuSkuAndImageDto;
 import com.cibertec.jama.dto.menu.MenuSkuJoinsDto;
-import com.cibertec.jama.entities.menu.MenuCategory;
-import com.cibertec.jama.entities.menu.MenuImage;
-import com.cibertec.jama.entities.menu.MenuSku;
-import com.cibertec.jama.entities.menu.MenuType;
+import com.cibertec.jama.entities.menu.*;
 import com.cibertec.jama.repositories.menu.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -248,5 +245,28 @@ public class MenuService {
 
     public void deleteSku(int id) {
         menuSkuRepository.deleteById(id);
+    }
+
+    public void saveMenu(Menu menu) {
+        var realSkus = menuSkuRepository.findAllById(
+                menu.getMenuSkus()
+                        .stream()
+                        .map(MenuSku::getId)
+                        .toList()
+        );
+        menu.setMenuSkus(realSkus);
+        menuRepository.save(menu);
+    }
+
+    public List<Menu> getAllMenus() {
+        return menuRepository.findAll();
+    }
+
+    public Menu findMenuBydId(int id) {
+        return menuRepository.findById(id).orElse(null);
+    }
+
+    public void deleteMenuById(int id) {
+        menuRepository.deleteById(id);
     }
 }

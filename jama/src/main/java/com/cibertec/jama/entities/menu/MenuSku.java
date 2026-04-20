@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @ToString
@@ -31,8 +34,6 @@ public class MenuSku {
     @ManyToOne(fetch = FetchType.LAZY)
     private MenuImage menuImage;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "menu_id")
-    @ToString.Exclude
-    private Menu menu;
+    @ManyToMany(mappedBy = "menuSkus")
+    private List<Menu> menus;
 }
