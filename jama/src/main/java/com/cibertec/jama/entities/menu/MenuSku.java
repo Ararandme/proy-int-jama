@@ -17,7 +17,6 @@ import java.util.List;
 public class MenuSku {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private int id;
 
     private String nombre;

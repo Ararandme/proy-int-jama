@@ -1,4 +1,4 @@
-package com.cibertec.jama.entities.menu;
+package com.cibertec.jama.entities.usuario;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,11 +14,11 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @Entity
-public class MenuType {
+public class UserPosition {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String nombre;
     private String descripcion;
-
 }

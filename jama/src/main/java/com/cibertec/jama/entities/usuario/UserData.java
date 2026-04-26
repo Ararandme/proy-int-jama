@@ -1,9 +1,6 @@
-package com.cibertec.jama.entities.menu;
+package com.cibertec.jama.entities.usuario;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,11 +11,15 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @Entity
-public class MenuType {
+public class UserData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nombre;
-    private String descripcion;
-
+    private String apellido;
+    private String dni;
+    private String cargo;
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private Users users;
 }

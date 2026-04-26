@@ -14,11 +14,17 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @Entity
-public class MenuType {
+public class MenuImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int id;
-    private String nombre;
-    private String descripcion;
+
+    private String menuImagenesId;
+    private String alias;
+    private String url;
+    private String backupUrl;
+    private String format;
+    private double size;
 
 }
