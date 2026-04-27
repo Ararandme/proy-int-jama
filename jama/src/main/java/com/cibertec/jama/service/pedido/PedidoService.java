@@ -128,8 +128,12 @@ public class PedidoService {
         Pedido pedido = pedidoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Pedido no encontrado"));
 
+        if (nuevoEstado == EstadoPedido.TERMINADO) {
+            throw new RuntimeException("No se permite finalizar el pedido");
+        }
+
         pedido.setEstadoPedido(nuevoEstado);
-        pedido.setPedidoEstaTerminado(nuevoEstado == EstadoPedido.TERMINADO);
+        pedido.setPedidoEstaTerminado(false);
 
         pedidoRepository.save(pedido);
     }
